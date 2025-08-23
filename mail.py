@@ -9,7 +9,7 @@ app_password = os.getenv("APP_PASSWORD")
 
 app = Flask(__name__)
 CORS(app) 
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, origins=["https://jaiminchandaranaportfolio.vercel.app"])
 
 @app.route("/send_inquiry", methods=["GET", "POST", "OPTIONS"])
 def send_inquiry():
