@@ -1,12 +1,14 @@
-# backend.py
 from flask import Flask, request, jsonify
 import yagmail, os
 from dotenv import load_dotenv
+from flask_cors import CORS
+import os 
 
 load_dotenv()
 app_password = os.getenv("APP_PASSWORD")
 
 app = Flask(__name__)
+CORS(app) 
 
 @app.route("/send_inquiry", methods=["POST"])
 def send_inquiry():
@@ -39,4 +41,5 @@ def send_inquiry():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
