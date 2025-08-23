@@ -2,3 +2,4 @@ Flask
 gunicorn
 yagmail
 dotenv
+flask-cors
