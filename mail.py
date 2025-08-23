@@ -9,8 +9,9 @@ app_password = os.getenv("APP_PASSWORD")
 
 app = Flask(__name__)
 CORS(app) 
+CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route("/send_inquiry", methods=["POST"])
+@app.route("/send_inquiry", methods=["GET", "POST", "OPTIONS"])
 def send_inquiry():
     data = request.json
     name = data.get("name")
